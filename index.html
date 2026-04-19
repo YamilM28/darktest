@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacman Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+ <body>
+  <!-- MENU SCREEN -->
+  <div id="menuScreen">
+    <h1>🎮 Pacman Game</h1>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <h1>Pacman Game</h1>
+
+  <div id="hud">
+    <span>Score: <span id="score">0</span></span>
+    <span>Lives: <span id="lives">3</span></span>
+    <span>Time: <span id="timer">120</span>s</span>
+    <span id="levelLabel">Level 1</span>
+  </div>
+
+  <div id="leaderboard">
+    <h3>Leaderboard</h3>
+    <ul id="scoresList"></ul>
+  </div>
+
+  <!-- BOOST PANEL -->
+  <div id="boostPanel">
+    <h3>Boosts</h3>
+    <button onclick="openPopup('speed')">⚡ Speed Boost</button>
+    <button onclick="openPopup('lives')">❤️ Extra Lives</button>
+  </div>
+
+  <!-- POPUP -->
+  <div id="popup" class="hidden">
+    <div id="popupBox">
+      <h3 id="popupTitle"></h3>
+      <p id="popupText"></p>
+      <button id="closePopupBtn">Close</button>
+    </div>
+  </div>
+
+  <!-- PAUSE & GAME OVER SCREENS -->
+  <div id="pauseScreen" class="hidden">
+   <h1>⏸ Paused</h1>
+   <button id="resumeBtn" onclick="resumeGame()">Continue</button>
+   <button id="exitBtn" onclick="restartGame()">Exit</button>
+</div>
+
+<div id="promoContainer" class="hidden"></div>
+  <div id="gameOverScreen" class="hidden">
+    <h1>💀 Game Over</h1>
+    <p id="finalMessage"></p>
+    <button id="restartBtn" onclick="restartGame()">Restart</button>
+  </div>
+  
+  <canvas id="gameCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

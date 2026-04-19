@@ -1,0 +1,334 @@
+/* ============================
+   PAC-MAN ARCADE FONT IMPORT
+   ============================ */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  background: #000;
+  color: #FFE000;
+}
+
+h1 {
+  margin: 10px;
+  color: #FFE000;
+  text-shadow: 0 0 10px #FFE000, 2px 2px 0 #FF7B00;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
+#hud {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #FFE000;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 0 0 6px #FFE000;
+}
+
+canvas {
+  background: black;
+  display: block;
+  margin: 10px auto;
+  border: 3px solid #1a1aff;
+  box-shadow: 0 0 20px #1a1aff, 0 0 40px rgba(26, 26, 255, 0.4);
+}
+
+/* ============================
+   PAC-MAN LEADERBOARD
+   ============================ */
+#leaderboard {
+  margin: 10px auto;
+  width: 260px;
+  background: #000;
+  padding: 14px 10px;
+  border: 3px solid #1a1aff;
+  box-shadow: 0 0 18px #1a1aff, inset 0 0 12px rgba(26,26,255,0.15);
+  image-rendering: pixelated;
+}
+
+#leaderboard h3 {
+  font-family: 'Press Start 2P', monospace;
+  color: #FFE000;
+  font-size: 11px;
+  margin: 0 0 12px 0;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px #FFE000, 2px 2px 0 #FF7B00;
+  text-transform: uppercase;
+}
+
+#scoresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  font-family: 'Press Start 2P', monospace;
+}
+
+#scoresList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 4px;
+  color: #fff;
+  border-bottom: 1px solid rgba(26, 26, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+#scoresList li:last-child {
+  border-bottom: none;
+}
+
+/* Player row (FALLING BEHIND YOU:) */
+#scoresList li.you-row {
+  color: #FFE000 !important;
+  text-shadow: 0 0 8px #FFE000;
+  background: rgba(255, 224, 0, 0.08);
+  border: 1px solid rgba(255, 224, 0, 0.3);
+  animation: pacBlink 1.2s step-end infinite;
+}
+
+@keyframes pacBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Rank numbers */
+#scoresList li::before {
+  content: attr(data-rank);
+  color: #FF7B00;
+  font-size: 9px;
+  margin-right: 6px;
+  min-width: 14px;
+}
+
+/* ============================
+   PAC-MAN BOOST PANEL
+   ============================ */
+#boostPanel {
+  position: absolute;
+  left: 20px;
+  top: 120px;
+  width: 170px;
+  background: #000;
+  padding: 12px 10px;
+  border: 3px solid #FFE000;
+  box-shadow: 0 0 16px #FFE000, inset 0 0 10px rgba(255,224,0,0.08);
+}
+
+#boostPanel h3 {
+  font-family: 'Press Start 2P', monospace;
+  color: #FFE000;
+  font-size: 10px;
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #FFE000;
+  text-transform: uppercase;
+}
+
+#boostPanel button {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px 4px;
+  background: #000;
+  color: #FFE000;
+  border: 2px solid #FFE000;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #FFE000;
+  transition: all 0.15s;
+  image-rendering: pixelated;
+}
+
+#boostPanel button:hover {
+  background: #FFE000;
+  color: #000;
+  box-shadow: 0 0 14px #FFE000;
+  text-shadow: none;
+  transform: scale(1.04);
+}
+
+/* POPUP */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popupBox {
+  background: #000;
+  padding: 24px;
+  border: 3px solid #FFE000;
+  box-shadow: 0 0 24px #FFE000, inset 0 0 16px rgba(255,224,0,0.06);
+  width: 280px;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+}
+
+#popupBox h3 {
+  color: #FFE000;
+  font-size: 12px;
+  text-shadow: 0 0 8px #FFE000;
+  margin-bottom: 12px;
+}
+
+#popupBox p {
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+#popupBox button {
+  margin-top: 14px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #FFE000;
+  color: #000;
+  border: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #FFE000;
+}
+
+#popupBox button:hover {
+  background: #fff;
+  box-shadow: 0 0 18px #fff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* SCREENS */
+#menuScreen,
+#pauseScreen,
+#gameOverScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #FFE000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.4rem;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Press Start 2P', monospace;
+}
+
+#menuScreen h1,
+#pauseScreen h1,
+#gameOverScreen h1 {
+  color: #FFE000;
+  text-shadow: 0 0 16px #FFE000, 3px 3px 0 #FF7B00;
+}
+
+#menuScreen button,
+#gameOverScreen button {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #000;
+  color: #FFE000;
+  border: 3px solid #FFE000;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 0 14px #FFE000;
+  transition: all 0.2s;
+}
+
+#menuScreen button:hover,
+#gameOverScreen button:hover {
+  background: #FFE000;
+  color: #000;
+  box-shadow: 0 0 28px #FFE000;
+}
+
+/* AD LOCATIONS */
+#promoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+}
+#promoContainer:not(.hidden) {
+  display: block !important;
+}
+#promoContainer button {
+  pointer-events: all;
+}
+#promoContainer img {
+  overflow: visible !important;
+  object-fit: fill;
+}
+#pauseScreen button {
+  padding: 14px 28px;
+  margin: 10px;
+  border: 3px solid transparent;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+#resumeBtn {
+  background: #000;
+  color: #2ecc71;
+  border-color: #2ecc71;
+  box-shadow: 0 0 12px #2ecc71;
+}
+
+#resumeBtn:hover {
+  background: #2ecc71;
+  color: #000;
+  box-shadow: 0 0 24px #2ecc71;
+  transform: scale(1.06);
+}
+
+#exitBtn {
+  background: #000;
+  color: #e74c3c;
+  border-color: #e74c3c;
+  box-shadow: 0 0 12px #e74c3c;
+}
+#exitBtn:hover {
+  background: #e74c3c;
+  color: #000;
+  box-shadow: 0 0 24px #e74c3c;
+  transform: scale(1.06);
+}
+#hidePromoBtn {
+  background: #000;
+  color: #FFE000;
+  border-color: #FFE000;
+  box-shadow: 0 0 12px #FFE000;
+  font-family: 'Press Start 2P', monospace;
+}
+
+#hidePromoBtn:hover {
+  background: #FFE000;
+  color: #000;
+  box-shadow: 0 0 24px #FFE000;
+  transform: scale(1.08);
+}
