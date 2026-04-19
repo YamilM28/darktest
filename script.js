@@ -131,7 +131,7 @@ let leaderboard = [
   { name: "Alex",   score: 120 },
   { name: "Jordan", score: 95  },
   { name: "Sam",    score: 80  },
-  { name: "HURRY UP YOU:",    score: 0   }
+  { name: "FALLING BEHIND YOU:",    score: 0   }
 ];
 
 /* ---------------- POPUP ---------------- */
